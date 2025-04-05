@@ -41,3 +41,21 @@ body {
   animation: heartbeat-glow 1.8s ease-in-out infinite;
 }
 
+/* Make the scrollbar thinner */
+::-webkit-scrollbar {
+  width: 6px; /* Set the width to make the scrollbar thinner */
+}
+
+/* Style the thumb (the draggable part of the scrollbar) */
+::-webkit-scrollbar-thumb {
+  background-color: #444444; /* Darker color for the thumb */
+  border-radius: 10px; /* Rounded corners for a smoother look */
+  border: 2px solid #1a0000; /* Add a thin border around the thumb for better visibility */
+}
+
+/* Style the track (the background of the scrollbar) */
+::-webkit-scrollbar-track {
+  background-color: #1a0000; /* Dark red background */
+}
+
+
