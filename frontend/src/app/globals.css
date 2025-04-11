@@ -58,4 +58,18 @@ body {
   background-color: #1a0000; /* Dark red background */
 }
 
+@keyframes heartbeat-glow {
+  0%, 100% {
+    stroke: #f00;
+    filter: drop-shadow(0 0 3px #f00);
+  }
+  50% {
+    stroke: #f00;
+    filter: drop-shadow(0 0 12px #f00);
+  }
+}
+
+.heartbeat-glow {
+  animation: heartbeat-glow 1.5s infinite ease-in-out;
+}
 

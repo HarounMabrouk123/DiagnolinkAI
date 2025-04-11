@@ -53,20 +53,18 @@ def split_text(documents: List[Document]):
 
 
 def save_to_chroma(chunks: List[Document]):
-    # Delete previous DB if it exists
-    if os.path.exists(CHROMA_PATH):
-        shutil.rmtree(CHROMA_PATH)
-
     # Use a local embedding model
     embedding = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 
-    db = Chroma.from_documents(
-        chunks,
-        embedding,
-        persist_directory=CHROMA_PATH
+    # Load or create Chroma DB
+    db = Chroma(
+        persist_directory=CHROMA_PATH,
+        embedding_function=embedding
     )
+    # Add new chunks
+    db.add_documents(chunks)
     db.persist()
-    print(f"✅ Saved {len(chunks)} chunks to {CHROMA_PATH}.")
+    print(f"✅ Added {len(chunks)} new chunks to {CHROMA_PATH}.")
 
 
 if __name__ == "__main__":
